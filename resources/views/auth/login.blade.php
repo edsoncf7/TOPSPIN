@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Iniciar Sesión - TopSpin</title>
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -11,21 +11,18 @@
     <div class="text-center mb-4">
         <img src="{{ asset('img/logotopspin.jpg') }}" alt="TopSpin Logo" class="img-fluid" style="max-width: 200px;">
     </div>
-
     <div class="form-section">
         <h2>INICIAR SESIÓN</h2>
-
         {{-- Mensaje de error de login --}}
         @if(session('error'))
             <p class="error-message">{{ session('error') }}</p>
         @endif
-
         {{-- Formulario de login Laravel --}}
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <input type="email" name="email" placeholder="Correo electrónico" required />
-            <input type="password" name="password" placeholder="Contraseña" required />
-            <button type="submit">Entrar</button>
+            <input type="email" name="email" required>
+            <input type="password" name="password" required>
+            <button type="submit">Iniciar sesión</button>
         </form>
 
         <p class="register-prompt">
@@ -34,6 +31,5 @@
         </p>
     </div>
 </div>
-
 </body>
 </html>

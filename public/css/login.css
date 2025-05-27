@@ -6,7 +6,8 @@
 }
 
 body {
-    background-image: url('/img/1.jpg'); /* Cambia 'fondo.jpg' por el nombre real de tu imagen */
+    background-image: url('/img/Fondoderaquetas.jpg');
+    /* Cambia 'fondo.jpg' por el nombre real de tu imagen */
     background-size: cover; /* Hace que la imagen cubra toda la pantalla */
     background-position: center center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que se repita */

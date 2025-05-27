@@ -9,26 +9,20 @@ class Usuario extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'Usuario'; // ← nombre EXACTO de tu tabla
+    protected $table = 'Usuario'; // Tu tabla personalizada
 
     protected $primaryKey = 'idUsuario';
 
-    public $timestamps = false;
-
     protected $fillable = [
-        'nombreUsuario',
-        'email',
-        'contraseña',
-        'idCargoUsuario'
+        'nombreUsuario', 'email', 'contraseña'
     ];
 
     protected $hidden = [
-        'contraseña',
+        'contraseña', 'remember_token',
     ];
 
-    // Laravel espera "password", así que redireccionamos
     public function getAuthPassword()
     {
-        return $this->contraseña;
+        return $this->contraseña; // Nombre real de tu campo de contraseña
     }
 }
