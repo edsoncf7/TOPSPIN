@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iniciar Sesión - TopSpin</title>
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="/img/logo.png" alt="TopSpin Logo" class="logo rotated-horizontal" />
+    </div>
+    <div class="form-section">
+      <h2>INICIAR SESIÓN</h2>
+     <form action="/login" method="POST">
+  <input type="email" name="correo" placeholder="Correo electrónico" required />
+  <input type="password" name="contraseña" placeholder="Contraseña" required />
+  
+  <select name="rol" required>
+    <option value="">Selecciona tu rol</option>
+    <option value="cliente">Cliente</option>
+    <option value="tecnico">Técnico</option>
+    <option value="admin">Administrador</option>
+  </select>
+
+  <button type="submit">Entrar</button>
+</form>
+
+      <p class="register-prompt">
+         ¿No tienes cuenta?
+         <a href="/register" class="register-link">Regístrate</a>
+      </p>
+
+      <% if (error) { %>
+        <p class="error-message"><%= error %></p>
+      <% } %>
+
+      <% if (notificacion) { %>
+  <div class="notification <%= notificacion.tipo %> show">
+    <%= notificacion.mensaje %>
+  </div>
+  <script>
+    setTimeout(() => {
+      const notif = document.querySelector('.notification');
+      if (notif) notif.classList.remove('show');
+    }, 5000); // 10 segundos
+  </script>
+<% } %>
+
+    </div>
+  </div>
+</body>
+</html>

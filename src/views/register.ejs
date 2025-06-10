@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro de Usuario - TopSpin</title>
+  <link rel="stylesheet" href="/css/register.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="/img/logo.png" alt="TopSpin Logo" class="logo flipped" />
+    </div>
+    <div class="form-section">
+      <h2>Regístrate</h2>
+      <form action="/register" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre completo" required />
+        <input type="email" name="correo" placeholder="Correo electrónico" required />
+        <input type="text" name="telefono" placeholder="Teléfono" required />
+        <input type="password" name="contraseña" placeholder="Contraseña" required />
+        <input type="text" name="direccion" placeholder="Dirección" required />
+        
+        <select name="rol" required>
+          <option value="">Selecciona tu rol</option>
+          <option value="cliente">Cliente</option>
+          <option value="tecnico">Técnico</option>
+          <option value="admin">Administrador</option>
+        </select>
+
+        <input type="date" name="fecha_nacimiento" placeholder="Fecha de nacimiento" required  max="<%= maxDate %>"/>
+
+        <button type="submit">Registrarse</button>
+      </form>
+      <p class="login-prompt">
+        ¿Ya tienes cuenta?
+        <a href="/login" class="login-link">Iniciar sesión</a>
+      </p>
+    </div>
+  </div>
+
+  <% if (notificacion) { %>
+  <div class="notification <%= notificacion.tipo %> show">
+    <%= notificacion.mensaje %>
+  </div>
+  <script>
+    setTimeout(() => {
+      const notif = document.querySelector('.notification');
+      if (notif) notif.classList.remove('show');
+    }, 5000); // 10 segundos
+  </script>
+<% } %>
+
+
+
+</body>
+</html>
